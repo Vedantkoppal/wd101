@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en "></html>
+<head>
+    <title>Registration From</title>
+    <style>
+        table {
+  border-collapse: collapse;
+  width: 80%;
+  margin: 50px auto 0;
+}
+        
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+    
+    
+    table {
+  border-collapse: collapse;
+  width: 80%;
+  margin: 50px auto 0;
+}
+
+    #userform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+    #userform input {
+  padding: 5px;
+  margin: 5px 0;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+    </style>
+</head>
+<body>
+    <form id="userform">
+        <label for="name">Name</label>
+        <input required type="text" id="name" name="name">
+     
+        <label for="email">Email</label>
+        <input required type="email" id="email" name="email">
+     
+        <label for="password">Password</label>
+        <input required type="password" id="password" name="password">
+     
+        <label for="dob">Date of Birth</label>
+        <input required type="date" id="dob" name="dob" min="1968-03-14" max="2005-03-14">
+     
+        <input required type="checkbox" id="acceptTerms" name="acceptTerms">
+        <label for="acceptTerms">Accept Terms & Conditions</label>
+     
+        <button type="submit">Submit</button>
+     </form>
+     <div id="UserEntries"></div>
+
+     <script>
+        const email=document.getElementById('email');
+        email.addEventListener('input',()=>validate(email));
+
+        function validate(element){
+            if(element.validity.typeMismatch){
+                element.setCustomValidity("Email is not in Right Format");
+                element.reportValidity();
+            }else{
+                element.setCustomValidity('');
+            }
+        }
+
+        // const dob1 = document.getElementById('dob');
+        // const dobDate = new Date(dob1);
+        // dob.addEventListener('input',()=>calculateAge(dobDate));
+            
+        //     function calculateAge(dob) {
+        //         const today = new Date();
+        //         let age = today.getFullYear() - dob.getFullYear();
+                
+        //    // const month = today.getMonth() - dob.getMonth();
+        //     if (age < 18 && age > 55) {
+        //         dob.setCustomValidity("Age must be greater than 18 or less than 55");
+        //         dob.reportValidity();
+        //     }else{dob.setCustomValidity('');}
+           
+        // }
+     </script>
+
+     <script src="./index.js"></script>
+
+</body>
+
+ </html>
